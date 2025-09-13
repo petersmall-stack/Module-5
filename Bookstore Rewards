@@ -1,0 +1,29 @@
+def calculate_points(books):
+    if books >= 8:
+        return 60
+    elif books >= 6:
+        return 30
+    elif books >= 4:
+        return 15
+    elif books >= 2:
+        return 5
+    else:
+        return 0
+
+def main():
+    print("CSU Global Bookstore Reward Program!")
+    while True:
+        try:
+            num_books_str = input("Input the books you purchased this month: ")
+            num_books = int(num_books_str)
+            if num_books < 0:
+                print("Invalid input. Please enter a positive number.")
+                continue
+            points_awarded = calculate_points(num_books)
+            print(f"\nBased on {num_books} book(s), you have earned {points_awarded} points.")
+            break 
+        except ValueError:
+            print("Invalid input. Please enter a whole number (e.g., 0, 1, 2).")
+
+if __name__ == "__main__":
+    main()
